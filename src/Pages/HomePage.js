@@ -44,8 +44,32 @@ async function constructMap(container){
     marker = new mapboxgl.Marker();
     searchAndUpdateMapview(map,"00 E 77th St, New York, NY 10075");
     
+     addMarker(-122.33, 47.60, 'My Parking1');
 
 }
+
+
+// Create a map instance
+const myMap = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v11',
+  center: [-122.33, 47.60],
+  zoom: 12
+});
+
+
+// Add a marker to the map
+const addMarker = (lng, lat, name) => {
+  const marker = new mapboxgl.Marker({
+    draggable: true
+  })
+    .setLngLat([lng, lat])
+    .setPopup(
+      new mapboxgl.Popup({ offset: 25 }).setText(name)
+    )
+    .addTo(myMap);
+};
+
 
 //Triggers when search button is pressed
 //reads the content from the search bar, makes an API request to location services
