@@ -39,8 +39,11 @@ async function constructMap(container){
             trackUserLocation: true,
         })
     );
+    
 
-    marker = new mapboxgl.Marker()
+    marker = new mapboxgl.Marker();
+    searchAndUpdateMapview(map,"00 E 77th St, New York, NY 10075");
+    
 
 }
 
